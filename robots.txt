@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://avkstudio.github.io/joseabrahamwebsite/sitemap.xml
