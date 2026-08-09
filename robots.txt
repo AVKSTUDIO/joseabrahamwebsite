@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://avkstudio.github.io/joseabrahamwebsite/sitemap.xml
+Sitemap: https://aj-asia-enterprise.com.my/sitemap.xml
