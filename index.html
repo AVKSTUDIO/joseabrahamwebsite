@@ -160,10 +160,15 @@
   .cat-title{display:flex;align-items:center;gap:12px;margin:38px 0 20px;color:var(--navy);font-weight:800;font-size:1.2rem}
   .cat-title:before{content:"";width:32px;height:3px;background:var(--gold);border-radius:3px}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .service{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:.22s;position:relative;overflow:hidden}
+  .service{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:0;transition:.22s;position:relative;overflow:hidden;display:flex;flex-direction:column}
   .service:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#d6ddec}
-  .service .ic{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold-2));display:grid;place-items:center;margin-bottom:16px}
-  .service .ic svg{width:26px;height:26px;stroke:var(--navy);fill:none;stroke-width:2}
+  .service .service-img{height:186px;overflow:hidden;position:relative;background:linear-gradient(135deg,var(--navy),#24408a)}
+  .service .service-img img{width:100%;height:100%;object-fit:cover;display:block;transition:.45s ease}
+  .service:hover .service-img img{transform:scale(1.07)}
+  .service .service-img.icon-band{display:grid;place-items:center}
+  .service .service-img.icon-band svg{width:58px;height:58px;stroke:var(--gold-2);fill:none;stroke-width:1.5}
+  .service .tag{position:absolute;top:12px;left:12px;z-index:2;background:var(--gold);color:var(--navy);font-size:.68rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;padding:5px 11px;border-radius:30px}
+  .service .service-body{padding:22px 24px 26px}
   .service h3{color:var(--navy);font-size:1.08rem;margin-bottom:6px}
   .service p{color:var(--muted);font-size:.92rem}
 
@@ -177,9 +182,10 @@
   #clients .section-title{color:#fff}
   #clients .lead{color:#b9c4de}
   .clients-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
-  .client{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:24px 18px;text-align:center;font-weight:700;letter-spacing:.3px;transition:.2s}
-  .client:hover{background:rgba(232,167,28,.14);border-color:var(--gold)}
-  .client span{color:var(--gold-2);font-size:.72rem;display:block;font-weight:600;margin-top:4px;letter-spacing:1px}
+  .client{background:#fff;border-radius:12px;padding:20px 18px;text-align:center;transition:.22s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:150px}
+  .client:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(0,0,0,.28)}
+  .client img{max-height:66px;max-width:82%;width:auto;object-fit:contain}
+  .client span{color:var(--navy);font-size:.8rem;font-weight:600;letter-spacing:.2px;line-height:1.3}
 
   /* Projects */
   .proj-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
@@ -335,22 +341,22 @@
 
     <div class="cat-title">Industrial &amp; Engineering Services</div>
     <div class="grid">
-      <article class="service"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V9l6-4 6 4v11M9 20v-6h6v6"/></svg></div><h3>Boiler &amp; Burner Maintenance</h3><p>Preventive and corrective maintenance to keep your boilers and burners running safely and efficiently.</p></article>
-      <article class="service"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.1 2.1-2-2 2.1-2.1z"/></svg></div><h3>Overhauling &amp; Retuning</h3><p>Complete overhauls and precision retuning to restore peak performance and combustion efficiency.</p></article>
-      <article class="service"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="M12 22V12M3 7l9 5 9-5"/></svg></div><h3>Spare Parts Supply</h3><p>Genuine and compatible spare parts sourced and supplied to minimise downtime.</p></article>
-      <article class="service"><div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div><h3>Electrical Works</h3><p>Reliable industrial electrical installation, repair and maintenance works.</p></article>
-      <article class="service"><div class="ic"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></div><h3>Boilerman Services</h3><p>Certified boilerman on part-time or contract basis to cover your operational needs.</p></article>
-      <article class="service"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l2 6 4-14 2 8h6"/></svg></div><h3>Visiting Steam Engineer</h3><p>Experienced steam engineers available for scheduled and on-demand plant visits.</p></article>
+      <article class="service"><div class="service-img"><img src="assets/svc-boiler-burner.jpg" alt="Boiler and burner maintenance service by Jose Abraham Asia Enterprise" loading="lazy" width="400" height="186" /></div><div class="service-body"><h3>Boiler &amp; Burner Maintenance</h3><p>Preventive and corrective maintenance to keep your boilers and burners running safely and efficiently.</p></div></article>
+      <article class="service"><div class="service-img"><img src="assets/svc-overhauling.jpg" alt="Boiler overhauling and retuning service in Malaysia" loading="lazy" width="400" height="186" /></div><div class="service-body"><h3>Overhauling &amp; Retuning</h3><p>Complete overhauls and precision retuning to restore peak performance and combustion efficiency.</p></div></article>
+      <article class="service"><div class="service-img"><img src="assets/svc-spare-parts.jpg" alt="Boiler and burner spare parts supply" loading="lazy" width="400" height="186" /></div><div class="service-body"><h3>Spare Parts Supply</h3><p>Genuine and compatible spare parts sourced and supplied to minimise downtime.</p></div></article>
+      <article class="service"><div class="service-img"><img src="assets/svc-electrical.jpg" alt="Industrial electrical works and maintenance" loading="lazy" width="400" height="186" /></div><div class="service-body"><h3>Electrical Works</h3><p>Reliable industrial electrical installation, repair and maintenance works.</p></div></article>
+      <article class="service"><div class="service-img"><img src="assets/svc-boilerman.jpg" alt="Certified boilerman contract services" loading="lazy" width="400" height="186" /></div><div class="service-body"><h3>Boilerman Services</h3><p>Certified boilerman on part-time or contract basis to cover your operational needs.</p></div></article>
+      <article class="service"><div class="service-img"><img src="assets/svc-steam-engineer.jpg" alt="Visiting steam engineer services for industrial plants" loading="lazy" width="400" height="186" /></div><div class="service-body"><h3>Visiting Steam Engineer</h3><p>Experienced steam engineers available for scheduled and on-demand plant visits.</p></div></article>
     </div>
 
     <div class="cat-title">Cleaning, Recycling, Trading &amp; Property</div>
     <div class="grid">
-      <article class="service"><div class="ic"><svg viewBox="0 0 24 24"><path d="M7 4l3 5H4zM17 20l-3-5h6zM4 9l4 8M20 15l-4-8"/></svg></div><h3>Recycling &amp; Waste Management</h3><p>Responsible recycling of all types of waste, supporting sustainable operations.</p></article>
-      <article class="service"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 3h14v18H5z"/><path d="M5 9c3 2 6 2 9 0s5 0 5 0"/></svg></div><h3>Tank Cleaning</h3><p>Safe, thorough industrial tank cleaning by trained personnel.</p></article>
-      <article class="service"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M6 21V11l6-6 6 6v10M10 21v-5h4v5"/></svg></div><h3>General Cleaning Works</h3><p>Facility and site cleaning services delivered to high hygiene standards.</p></article>
-      <article class="service"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2c3 4 5 7 5 11a5 5 0 0 1-10 0c0-4 2-7 5-11z"/></svg></div><h3>Palm Oil Trading</h3><p>Reliable palm oil trading with competitive, transparent dealings.</p></article>
-      <article class="service"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div><h3>Property Services</h3><p>Buying &amp; selling of properties — old and new — with dependable support.</p></article>
-      <article class="service"><div class="ic"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div><h3>Manpower Supply</h3><p>Skilled manpower supply to keep your plant and projects fully staffed.</p></article>
+      <article class="service"><div class="service-img"><img src="assets/svc-recycling.jpg" alt="Recycling and waste management services in Malaysia" loading="lazy" width="400" height="186" /></div><div class="service-body"><h3>Recycling &amp; Waste Management</h3><p>Responsible recycling of all types of waste, supporting sustainable operations.</p></div></article>
+      <article class="service"><div class="service-img"><img src="assets/svc-tank-cleaning.jpg" alt="Industrial tank cleaning services" loading="lazy" width="400" height="186" /></div><div class="service-body"><h3>Tank Cleaning</h3><p>Safe, thorough industrial tank cleaning by trained personnel.</p></div></article>
+      <article class="service"><div class="service-img"><img src="assets/svc-general-cleaning.jpg" alt="General industrial cleaning works" loading="lazy" width="400" height="186" /></div><div class="service-body"><h3>General Cleaning Works</h3><p>Facility and site cleaning services delivered to high hygiene standards.</p></div></article>
+      <article class="service"><div class="service-img icon-band"><svg viewBox="0 0 24 24"><path d="M12 2c3 4 5 7 5 11a5 5 0 0 1-10 0c0-4 2-7 5-11z"/></svg></div><div class="service-body"><h3>Palm Oil Trading</h3><p>Reliable palm oil trading with competitive, transparent dealings.</p></div></article>
+      <article class="service"><div class="service-img icon-band"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div><div class="service-body"><h3>Property Services</h3><p>Buying &amp; selling of properties — old and new — with dependable support.</p></div></article>
+      <article class="service"><div class="service-img icon-band"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div><div class="service-body"><h3>Manpower Supply</h3><p>Skilled manpower supply to keep your plant and projects fully staffed.</p></div></article>
     </div>
   </div>
 </section>
@@ -380,14 +386,14 @@
     <h2 class="section-title">Our Main <span>Clients</span></h2>
     <p class="lead">Proud to serve established organisations across manufacturing, pharmaceutical, chemical and palm oil sectors.</p>
     <div class="clients-grid">
-      <div class="client">Givaudan Malaysia</div>
-      <div class="client">Duopharma Biotech Berhad</div>
-      <div class="client">Mewah Group</div>
-      <div class="client">Pascal Biotech Sdn Bhd</div>
-      <div class="client">Biogas Sulpom</div>
-      <div class="client">Jadi Imaging Technologies Sdn Bhd</div>
-      <div class="client">GIIB Rubber Compound</div>
-      <div class="client">Nippon<span>+ MORE</span></div>
+      <div class="client"><img src="assets/client-givaudan.jpg" alt="Givaudan Malaysia" loading="lazy" /><span>Givaudan Malaysia</span></div>
+      <div class="client"><img src="assets/client-duopharma.png" alt="Duopharma Biotech Berhad" loading="lazy" /><span>Duopharma Biotech Berhad</span></div>
+      <div class="client"><img src="assets/client-mewah.jpeg" alt="Mewah Group" loading="lazy" /><span>Mewah Group</span></div>
+      <div class="client"><img src="assets/client-pascal.jpeg" alt="Pascal Biotech Sdn Bhd" loading="lazy" /><span>Pascal Biotech Sdn Bhd</span></div>
+      <div class="client"><img src="assets/client-sulpom.png" alt="Biogas Sulpom" loading="lazy" /><span>Biogas Sulpom</span></div>
+      <div class="client"><img src="assets/client-jadi.png" alt="Jadi Imaging Technologies Sdn Bhd" loading="lazy" /><span>Jadi Imaging Technologies</span></div>
+      <div class="client"><img src="assets/client-giib.png" alt="GIIB Rubber Compound" loading="lazy" /><span>GIIB Rubber Compound</span></div>
+      <div class="client"><img src="assets/client-nippon.png" alt="Nippon Paint" loading="lazy" /><span>Nippon Paint</span></div>
     </div>
   </div>
 </section>
